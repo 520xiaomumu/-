@@ -1,57 +1,122 @@
-# React + TypeScript + Vite
+# 🎮 生命游戏 (Conway's Game of Life)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+一个现代化的康威生命游戏实现，使用 React + TypeScript + Vite 构建。
 
-Currently, two official plugins are available:
+## 🌟 特性
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎯 经典的康威生命游戏规则
+- 🎨 现代化的用户界面
+- 🖱️ 交互式网格操作
+- ⏯️ 播放/暂停控制
+- 🔄 重置功能
+- 📱 响应式设计
+- 🎪 预设图案库
+- 🌙 深色/浅色主题切换
 
-## Expanding the ESLint configuration
+## 🚀 如何运行游戏
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ⚠️ 重要提示
+**不要直接双击 `index.html` 文件！** 这是一个 React 项目，需要通过开发服务器运行。
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 📋 运行步骤
+
+#### 1. 克隆项目
+```bash
+git clone https://github.com/520xiaomumu/生命游戏.git
+cd 生命游戏
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+#### 2. 安装依赖
+确保你的电脑已安装 [Node.js](https://nodejs.org/)（推荐 18.0 或更高版本）
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
 ```
+
+#### 3. 启动开发服务器
+```bash
+npm run dev
+```
+
+#### 4. 打开游戏
+- 终端会显示本地地址（通常是 `http://localhost:5173`）
+- 在浏览器中打开该地址
+- 开始享受生命游戏！🎉
+
+### 🛠️ 其他可用命令
+
+```bash
+# 构建生产版本
+npm run build
+
+# 预览构建结果
+npm run preview
+
+# 代码检查
+npm run lint
+
+# 类型检查
+npm run type-check
+```
+
+## 🎮 游戏玩法
+
+### 基本操作
+- **点击网格**：切换细胞的生死状态
+- **播放按钮**：开始/暂停游戏演化
+- **重置按钮**：清空所有细胞
+- **速度滑块**：调整演化速度
+
+### 生命游戏规则
+1. **存活**：活细胞周围有2或3个活邻居时继续存活
+2. **死亡**：活细胞周围少于2个或多于3个活邻居时死亡
+3. **诞生**：死细胞周围恰好有3个活邻居时复活
+
+### 经典图案
+游戏内置了多种经典图案：
+- 🔄 **振荡器**：周期性变化的图案
+- 🚀 **滑翔机**：会移动的图案
+- 🏭 **滑翔机枪**：持续产生滑翔机的图案
+- 🧱 **静物**：保持不变的稳定图案
+
+## 🛠️ 技术栈
+
+- **前端框架**：React 18
+- **开发语言**：TypeScript
+- **构建工具**：Vite
+- **样式框架**：Tailwind CSS
+- **状态管理**：Zustand
+- **图标库**：Lucide React
+
+## 📁 项目结构
+
+```
+生命游戏/
+├── src/
+│   ├── components/     # React 组件
+│   ├── hooks/          # 自定义 Hooks
+│   ├── lib/            # 工具库和游戏引擎
+│   ├── pages/          # 页面组件
+│   └── assets/         # 静态资源
+├── public/             # 公共文件
+├── package.json        # 项目配置
+└── README.md          # 项目说明
+```
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 📄 许可证
+
+MIT License
+
+## 🎯 关于康威生命游戏
+
+康威生命游戏是英国数学家约翰·康威在1970年发明的细胞自动机。尽管被称为"游戏"，它实际上是一个零玩家游戏，意味着它的演化是由初始状态决定的，不需要进一步的输入。
+
+这个简单的规则系统能够产生极其复杂和美丽的图案，被广泛用于计算机科学、数学和艺术领域的研究和创作。
+
+---
+
+**享受探索生命游戏的奇妙世界吧！** 🌟
